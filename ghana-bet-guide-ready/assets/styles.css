@@ -609,198 +609,115 @@ main {
   }
 }
 
-/* Bookmaker directory cards */
+/* ===== Legacy bookmaker cards ===== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
 .card-grid .card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   min-width: 0;
 }
+
 .card-grid .card .text-link {
-  margin-top: auto;
-  margin-bottom: 18px;
+  font-weight: 750;
 }
+
 .card-grid .card .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  margin-top: auto;
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
 }
-.card-grid .card .brand-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
+
+.card-grid .card .button:hover {
+  background: var(--green-hover);
 }
-.card-grid .brand-icon.logo-1xbet {
-  background: #e7eee8;
-  color: #123d2b;
+
+.logo-1xbet {
+  background: #123d2b;
+  color: #fff;
 }
-.card-grid .brand-icon.logo-stake,
-.card-grid .brand-icon.logo-melbet {
+
+.logo-stake {
   background: #17191d;
   color: #fff;
 }
-.card-grid .brand-icon {
-  text-decoration: none;
-}
-@media (max-width: 800px) {
-  .card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (max-width: 560px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
+
+.logo-melbet {
+  background: linear-gradient(135deg, #000 0%, #d5a52a 100%);
+  color: #fff;
 }
 
-/* Ghana Bet Guide — unified brand colors */
+/* ===== Operator directory ===== */
 
-body {
-  background-color: var(--soft);
-  color: var(--ink);
-}
-
-a {
-  color: var(--green);
-}
-
-a:hover {
-  color: var(--green-hover);
-}
-
-button,
-.button,
-.btn,
-.btn-primary {
-  background-color: var(--green);
-  color: var(--white);
-  border-color: var(--green);
-}
-
-button:hover,
-.button:hover,
-.btn:hover,
-.btn-primary:hover {
-  background-color: var(--green-hover);
-  border-color: var(--green-hover);
-}
-
-.btn-secondary,
-.button-secondary {
-  background-color: var(--green-soft);
-  color: var(--green);
-  border-color: var(--line);
-}
-
-.badge,
-.tag,
-.label-accent {
-  background-color: var(--gold-soft);
-  color: #76560d;
-}
-
-.card {
-  background-color: var(--white);
-  border-color: var(--line);
-}
-
-hr {
-  border-color: var(--line);
-}
-
-:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 3px;
-}
-
-/* Общая основа иконок букмекеров */
-.brand-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-/* Melbet — чёрно-золотой градиент */
-.brand-icon.logo-melbet {
-  background: linear-gradient(135deg, #000000 0%, #d5a52a 100%);
-  color: #ffffff;
-  padding: 15px 30px;
-  border-radius: 5px;
-}
-
-/* Stake — тёмный однотонный фон */
-.brand-icon.logo-stake {
-  background: #17191d;
-  color: #ffffff;
-  padding: 15px 30px;
-  border-radius: 5px;
-}
-
-/* 1xBet — синий стиль */
-.brand-icon.logo-1xbet {
-  background: #123d2b;
-  color: #ffffff;
-  padding: 15px 30px;
-  border-radius: 5px;
-}
-
-/* Force Melbet's black-and-gold icon on every page */
-a.brand-icon.logo-melbet,
-.brand-icon.logo-melbet {
-  background: linear-gradient(135deg, #000000 0%, #d5a52a 100%) !important;
-  color: #ffffff !important;
-  background-color: #000000;
-}
-
-/* Operator promotional cards */
 .operator-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
   gap: 24px;
 }
 
 .operator-card {
-  --operator-color: #174a9b;
-  --operator-tint: #eaf1ff;
-  --operator-button: #174a9b;
+  --operator-color: #123d2b;
+  --operator-button: #123d2b;
 
-  padding: 0;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
   border-radius: 16px;
-  border: 1px solid var(--border-color, #e5e7eb);
-  background: var(--card-bg, #fff);
+  background: #fff;
+  box-shadow: 0 4px 16px rgb(24 39 29 / 6%);
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .operator-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 12px 28px rgb(24 39 29 / 12%);
 }
 
 .operator-card--1xbet {
   --operator-color: #174a9b;
-  --operator-tint: #eaf1ff;
   --operator-button: #174a9b;
 }
 
 .operator-card--stake {
   --operator-color: #202522;
-  --operator-tint: #eff8e6;
-  --operator-button: #27391b;
+  --operator-button: #b6f23b;
 }
 
 .operator-card--melbet {
   --operator-color: #851d40;
-  --operator-tint: #fff0f4;
   --operator-button: #851d40;
 }
 
+/* Card header */
+
 .operator-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 112px;
   padding: 22px;
   background: var(--operator-color);
   color: #fff;
@@ -809,122 +726,199 @@ a.brand-icon.logo-melbet,
 .operator-brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 13px;
+  min-width: 0;
+}
+
+.operator-brand > div:last-child {
+  min-width: 0;
 }
 
 .operator-brand h3 {
   margin: 0;
   color: #fff;
-  font-size: 1.3rem;
-  line-height: 1.25;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
 }
 
 .operator-brand .brand-icon {
-  width: 58px;
-  height: 58px;
-  flex: 0 0 58px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border: 0;
   border-radius: 12px;
   background: #fff;
   color: var(--operator-color);
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 900;
 }
 
-.operator-card--stake .brand-icon {
+.operator-card--stake .operator-brand .brand-icon {
   background: #b6f23b;
   color: #17210b;
+}
+
+.operator-card--melbet .operator-brand .brand-icon {
+  background: #fff;
+  color: #851d40;
 }
 
 .operator-subtitle {
   display: block;
   margin-top: 5px;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgb(255 255 255 / 85%);
   font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
 }
 
 .operator-tag {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 4px 9px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 999px;
   color: #fff;
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.4;
 }
+
+/* Card body */
 
 .operator-content {
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: stretch;
+  gap: 12px;
   padding: 22px;
 }
 
 .operator-content h4 {
-  margin: 0 0 10px;
-  font-size: 1.1rem;
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.08rem;
   line-height: 1.4;
 }
 
-.operator-content > p:not(.operator-disclaimer) {
-  margin: 0 0 22px;
+.operator-content p {
+  color: var(--muted);
   line-height: 1.7;
 }
 
-.operator-cta {
-  display: block;
-  margin-top: auto;
-  padding: 13px 16px;
-  border-radius: 9px;
+.operator-content > p:not(.operator-disclaimer) {
+  margin: 0 0 10px;
+}
+
+/* Buttons */
+
+.operator-content .operator-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
   background: var(--operator-button);
   color: #fff;
-  font-weight: 700;
+  font-size: 0.94rem;
+  font-weight: 750;
+  line-height: 1.4;
   text-align: center;
   text-decoration: none;
+  overflow-wrap: anywhere;
   transition: opacity 180ms ease;
 }
 
-.operator-card--stake .operator-cta {
+.operator-card--stake .operator-content .operator-cta {
   background: #b6f23b;
   color: #17210b;
 }
 
-.operator-cta:hover {
-  opacity: 0.88;
+.operator-content .operator-cta:hover {
+  opacity: 0.86;
+  text-decoration: none;
 }
 
-.operator-disclaimer {
-  margin: 14px 0 0;
-  color: var(--muted, #6b7280);
-  font-size: 0.75rem;
-  line-height: 1.5;
+/* Secondary registration / official website button */
+
+.operator-content .operator-cta--register {
+  margin-top: 0;
+  border-color: var(--line);
+  background: #fff;
+  color: var(--operator-color);
 }
 
-@media (max-width: 640px) {
+.operator-card--stake .operator-content .operator-cta--register {
+  border-color: #9aaa87;
+  background: #fff;
+  color: #26351a;
+}
+
+.operator-content .operator-disclaimer {
+  margin: auto 0 0;
+  padding-top: 8px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+  .card-grid,
   .operator-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .card-grid,
+  .operator-grid {
+    grid-template-columns: minmax(0, 1fr);
     gap: 18px;
   }
 
-  .operator-banner,
+  .operator-banner {
+    min-height: 96px;
+    padding: 18px;
+  }
+
   .operator-content {
     padding: 18px;
   }
 
+  .operator-brand {
+    gap: 10px;
+  }
+
   .operator-brand h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
+  }
+
+  .operator-subtitle {
+    font-size: 0.62rem;
   }
 }
 
+/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
   .operator-card,
-  .operator-cta {
+  .operator-content .operator-cta {
     transition: none;
   }
 
