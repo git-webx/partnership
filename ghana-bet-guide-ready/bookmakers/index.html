@@ -21,7 +21,23 @@
   <meta name="theme-color" content="#2563EB">
 
   <link rel="stylesheet" href="/assets/styles.css">
-  <script defer src="/assets/site.js"></script>
+  <!-- 1. Мгновенная инициализация аналитики (безопасно для остальных скриптов) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+    
+    <!-- 2. Подключение внешних файлов (основной скрипт сайта и библиотека Google) -->
+    <script defer src="/assets/site.js"></script>
+    <script async src="https://googletagmanager.com"></script>
+    
+    <!-- 3. Запуск отслеживания для вашего счетчика -->
+    <script>
+      gtag('config', 'G-0XWLPMJZE3');
+    </script>
+
+  
 </head>
 
 <body>
